@@ -22,3 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('women.urls')),
 ]
+
+
+
+handler404 = pageNotFound
