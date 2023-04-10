@@ -3,8 +3,11 @@ from django.shortcuts import render, redirect
 from .models import *
 
 menu =["Добавить статью", "Обратная связь", "О сайте", "Войти"]
+
+
 def index(request):
-    return render(request, 'women/index.html', {'menu': menu, 'title': 'Главная страница'})
+    posts = Women.objects.all()
+    return render(request, 'women/index.html',{'posts': posts, 'menu': menu, 'title': 'Главная страница'})
 
 def about(request):
     return render(request, 'women/about.html', {'menu': menu, 'title': 'О сайте'})
