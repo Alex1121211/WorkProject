@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
 from .models import *
 
-menu =[{'tile': "Добавить статью", 'url_name': 'add_page'},
+menu =[{'title': "Добавить статью", 'url_name': 'add_page'},
        {'title': "Обратная связь", 'url_name': 'contact'},
        {'title': "О сайте", 'url_name': 'about'},
        {'title': "Войти", 'url_name': 'login'}
