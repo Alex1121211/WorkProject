@@ -11,10 +11,13 @@ menu =[{'title': "Добавить статью", 'url_name': 'add_page'},
 
 def index(request):
     posts = Women.objects.all()
+    cats = Category.objects.all()
     context = {
         'posts': posts,
+        'cats': cats,
         'menu': menu,
-        'title': 'Главная страница'
+        'title': 'Главная страница',
+        'cat_selected': 0,
     }
     return render(request, 'women/index.html', context=context)
 
@@ -35,3 +38,6 @@ def pageNotFound(request, exception):
 
 def show_post(request, post_id):
     return HttpResponse(f"Отображение статьи с id = {post_id}")
+
+def show_category(request,cat_id):
+    return HttpResponse(f"Отображение категории с id = {cat_id}")
