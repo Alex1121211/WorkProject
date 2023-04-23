@@ -17,6 +17,14 @@ class Women(models.Model):
 
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk})
+
+
+    class Meta:
+        verbose_name = 'Порно звезды'
+        verbose_name_plural = 'Порно звезды'
+        ordering = ['time_create', 'title']
+
+
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True)
 
