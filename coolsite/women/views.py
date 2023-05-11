@@ -47,15 +47,26 @@ def show_post(request, post_slug):
 
     return render(request, 'women/post.html', context=context)
 
-def show_category(request,cat_id):
-    posts = Women.objects.filter(cat_id=cat_id)
 
-    if len(posts) == 0:
-        raise Http404()
-    context = {
-        'posts': posts,
-        'menu': menu,
-        'title': 'Отображение по статьям',
-        'cat_selected': cat_id,
-    }
-    return render(request, 'women/index.html', context=context)
+def show_category(request, cat_slug):
+    posts = Women.objects.filter(cat__slug=cat_slug)
+
+    dict = {'title': 'Отображение по рубрикам',
+            'posts': posts,
+            'cat_selected': cat_slug
+            }
+
+    return render(request, 'women/index.html', context=dict)
+
+# def show_category(request,cat_id):
+#     posts = Women.objects.filter(cat_id=cat_id)
+#
+#     if len(posts) == 0:
+#         raise Http404()
+#     context = {
+#         'posts': posts,
+#         'menu': menu,
+#         'title': 'Отображение по статьям',
+#         'cat_selected': cat_id,
+#     }
+#     return render(request, 'women/index.html', context=context)
